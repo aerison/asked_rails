@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   put 'posts/:id' => 'posts#update'
 
+
   delete 'posts/:id' => 'posts#destroy'
   #html delete method
 
