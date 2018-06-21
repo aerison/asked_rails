@@ -1,7 +1,9 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+
 
 <p><%= @post.id %> 번째 글</p>
-<p><%= @post.username %></p>
+<p><%= @post.user.username %></p>
 <p><%= @post.title %></p>
 <p><%= @post.content %></p>
+
+<a href="/posts/<%= @post.id %>" data-method="delete" data-confirm="너 진짜 지울래?">[x]</a>
+<a href="/posts/<%= @post.id %>/edit">[수정]</a>

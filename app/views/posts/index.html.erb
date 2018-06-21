@@ -1,13 +1,21 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+
 <a href="/posts/new">글 쓰러가기</a>
-<% @posts.each do |post| %>
-  <p><%= post.id %></p>
-  <p><%= post.username %></p>
-  <p><%= post.title %></p>
-  <p><%= post.content %></p>
-  <a href="/posts/<%= post.id %>">글 보러가기</a>
-  <a href="/posts/<%= post.id %>" data-method="delete" data-confirm="너 진짜 지울래?">[x]</a>
-  <a href="/posts/<%= post.id %>/edit">[수정]</a>
-  <hr />
-<% end %>
+
+<table class="table table-hover table-dark">
+  <thead>
+    <tr>
+      <th scope="row">#</th>
+      <td>게시글 제목</td>
+      <td colspan="2">작성자</td>
+    </tr>
+  </thead>
+  <tbody>
+        <% @posts.each do |post| %>
+        <tr>
+          <th scope="row"><%= post.id %></th>
+          <td><a href="/posts/<%= post.id %>"><%= post.title %></a></td>
+          <td colspan="2"><%= post.user.username %></td>
+        </tr>
+        <% end %>
+  </tbody>
+</table>
