@@ -1,28 +1,35 @@
-== README
+[Rials 기본라우팅](Rails routing 리소스기반으로 라우팅하기)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+```ruby
+#roubts.rb
+#idnex
+get 'posts/new'=>'posts#new'
+post 'posts'=>'posts#create'
+#CRUD - R
+get 'posts/:id'=>'posts#show'
 
-Things you may want to cover:
+#CRUD - U
+get 'posts/:id/edit'=>'posts#edit'
+put 'posts/:id/'=>'posts#update'
 
-* Ruby version
+#CRUD - D
+delete 'posts/:id'=>'posts#destroy'
+```
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```ruby
+resources:post```
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* Rest API를 구성하는 기본원칙
+  1.URL은 정보의 자원을 표현한다.
+  2.자원에 대한 행위는 HTTP method(Verb)로 표현한다.
+
+####form 에서 post요청보내기
+```erb
+//new .html.erb
+<form action ='/posts' method="post">
+    ..
+    <input type="hidden" name="authenticity_token"
+    value="<%=form_authenticity_token%>">
+    ..
+ </form>
