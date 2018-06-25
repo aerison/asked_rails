@@ -17,7 +17,8 @@ delete 'posts/:id'=>'posts#destroy'
 ```
 
 ```ruby
-resources:post```
+resources:post
+```
 
 
 * Rest API를 구성하는 기본원칙
@@ -33,3 +34,8 @@ resources:post```
     value="<%=form_authenticity_token%>">
     ..
  </form>
+ ```
+ ```ruby
+ #app/controller/
+ ```
+ * form 
